@@ -89,8 +89,7 @@ export default function LearningWorkspace({ session, onSessionUpdate, onComplete
             },
           });
 
-          // Reset for next step
-          setCode('');
+          // Reset step-specific hints (DO NOT clear code terminal: keep progressive code!)
           setHints([]);
           setCurrentHintLevel(0);
           setRevealedCode(null);
@@ -210,8 +209,8 @@ export default function LearningWorkspace({ session, onSessionUpdate, onComplete
         </div>
       </div>
 
-      {/* Right: Algorithm, Guidance & Feedback Panel */}
-      <div className="w-[440px] flex flex-col bg-vibe-surface/30 overflow-y-auto">
+      {/* Right: Complete Algorithm, Guidance & Feedback Panel */}
+      <div className="w-[480px] flex flex-col bg-vibe-surface/30 overflow-y-auto">
         {/* Step Progress */}
         <div className="px-5 py-4 border-b border-vibe-border">
           <div className="flex items-center justify-between mb-3">
@@ -237,7 +236,7 @@ export default function LearningWorkspace({ session, onSessionUpdate, onComplete
                 className={`flex-1 h-1.5 rounded-full transition-colors ${
                   step.status === 'completed'
                     ? 'bg-vibe-success'
-                    : step.status === 'in_progress'
+                    : i === session.current_step_index
                       ? 'bg-vibe-accent'
                       : 'bg-vibe-border'
                 }`}
@@ -247,62 +246,9 @@ export default function LearningWorkspace({ session, onSessionUpdate, onComplete
           </div>
         </div>
 
-        {/* Current Objective */}
-        <div className="px-5 py-4 border-b border-vibe-border">
-          <h3 className="text-xs font-semibold text-vibe-textMuted uppercase tracking-wider mb-2 flex items-center gap-1.5">
-            <span>🎯</span> Current Objective
-          </h3>
-          <div className="bg-vibe-bg border border-vibe-border rounded-lg p-3.5 animate-fadeIn">
-            <p className="text-sm font-medium text-vibe-text leading-snug">
-              {currentStep?.objective || 'All objectives completed!'}
-            </p>
-            {currentStep?.learning_concept && (
-              <span className="inline-block mt-2 text-[11px] px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/25">
-                {currentStep.learning_concept}
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* --- ALGORITHM SECTION --- */}
-        <div className="px-5 py-4 border-b border-vibe-border bg-vibe-accent/5">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-xs font-bold text-vibe-accent uppercase tracking-wider flex items-center gap-1.5">
-              <span>🧠</span> Algorithm & Logic Specification
-            </h3>
-            <span className="text-[10px] text-vibe-textMuted bg-vibe-surface px-1.5 py-0.5 rounded border border-vibe-border">
-              Read & Code
-            </span>
-          </div>
-
-          <div className="bg-vibe-bg border border-vibe-accent/20 rounded-lg p-3.5 text-xs text-vibe-text leading-relaxed font-mono whitespace-pre-wrap">
-            {currentAlgorithm || (
-              '1. Review the requirement in the objective.\n2. Write the corresponding Python statements.\n3. Return or output the target result.'
-            )}
-          </div>
-        </div>
-
-        {/* --- INITIAL STARTER GUIDANCE (Always visible at start) --- */}
-        {currentStarterHint && (
-          <div className="px-5 py-3 border-b border-vibe-border bg-blue-500/5">
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <span className="text-xs">💡</span>
-              <span className="text-[11px] font-semibold text-blue-400 uppercase tracking-wider">
-                Starter Guidance
-              </span>
-            </div>
-            <p className="text-xs text-vibe-textMuted leading-relaxed pl-5">
-              {currentStarterHint}
-            </p>
-          </div>
-        )}
-
-        {/* Feedback Area */}
+        {/* Feedback Area (Shows immediately when evaluated) */}
         {feedback && (
-          <div className="px-5 py-4 border-b border-vibe-border animate-fadeIn">
-            <h3 className="text-xs font-semibold text-vibe-textMuted uppercase tracking-wider mb-2">
-              Evaluation
-            </h3>
+          <div className="px-5 py-3.5 border-b border-vibe-border animate-fadeIn">
             <div className={`border rounded-lg p-3.5 ${feedbackColor}`}>
               <div className="flex items-center gap-2 mb-1">
                 {feedback.status === 'pass' && (
@@ -322,6 +268,97 @@ export default function LearningWorkspace({ session, onSessionUpdate, onComplete
             </div>
           </div>
         )}
+
+        {/* --- COMPLETE ALGORITHM SPECIFICATION (Full multi-stage roadmap) --- */}
+        <div className="px-5 py-4 border-b border-vibe-border">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-xs font-bold text-vibe-accent uppercase tracking-wider flex items-center gap-1.5">
+              <span>🧠</span> Complete Program Algorithm
+            </h3>
+            <span className="text-[10px] text-vibe-textMuted bg-vibe-surface px-2 py-0.5 rounded border border-vibe-border">
+              {session.total_steps || session.steps?.length || 0} Stages
+            </span>
+          </div>
+
+          <div className="space-y-3">
+            {(session.steps && session.steps.length > 0 ? session.steps : [currentStep]).map((step, idx) => {
+              if (!step) return null;
+              const isCurrent = idx === session.current_step_index;
+              const isCompleted = step.status === 'completed' || idx < session.current_step_index;
+              const isUpcoming = !isCurrent && !isCompleted;
+
+              return (
+                <div
+                  key={step.id || idx}
+                  className={`rounded-lg transition-all p-3.5 ${
+                    isCurrent
+                      ? 'border-2 border-vibe-accent bg-vibe-accent/10 shadow-lg shadow-vibe-accent/5 ring-1 ring-vibe-accent/30'
+                      : isCompleted
+                        ? 'border border-emerald-500/35 bg-emerald-500/5'
+                        : 'border border-vibe-border/60 bg-vibe-bg/40 opacity-75 hover:opacity-100'
+                  }`}
+                >
+                  {/* Step Header */}
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs font-bold ${isCurrent ? 'text-vibe-accent' : isCompleted ? 'text-emerald-400' : 'text-vibe-textMuted'}`}>
+                        Step {idx + 1}
+                      </span>
+                      {isCurrent && (
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-vibe-accent text-white">
+                          Current Objective
+                        </span>
+                      )}
+                      {isCompleted && (
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 flex items-center gap-1">
+                          ✓ Done
+                        </span>
+                      )}
+                      {isUpcoming && (
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-medium uppercase tracking-wider bg-vibe-surface text-vibe-textMuted border border-vibe-border">
+                          Upcoming
+                        </span>
+                      )}
+                    </div>
+                    {step.learning_concept && (
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/15 text-purple-400 border border-purple-500/20 max-w-[140px] truncate">
+                        {step.learning_concept}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Objective Title */}
+                  <p className={`text-xs font-medium mb-2 ${isCurrent ? 'text-white font-semibold' : 'text-vibe-text'}`}>
+                    {step.objective}
+                  </p>
+
+                  {/* Step Algorithm Specification */}
+                  <div className={`p-2.5 rounded text-xs font-mono whitespace-pre-wrap leading-relaxed ${
+                    isCurrent
+                      ? 'bg-vibe-bg border border-vibe-accent/25 text-vibe-text'
+                      : isCompleted
+                        ? 'bg-vibe-bg/60 border border-emerald-500/20 text-vibe-textMuted'
+                        : 'bg-vibe-bg/40 border border-vibe-border/40 text-vibe-textMuted'
+                  }`}>
+                    {step.algorithm || '1. Review requirement.\n2. Implement logic.\n3. Return result.'}
+                  </div>
+
+                  {/* Current Step Starter Guidance */}
+                  {isCurrent && (step.starter_hint || currentStarterHint) && (
+                    <div className="mt-2.5 p-2 rounded bg-blue-500/10 border border-blue-500/25 flex items-start gap-1.5">
+                      <span className="text-xs">💡</span>
+                      <div className="text-[11px] text-blue-300 leading-snug">
+                        <span className="font-semibold text-blue-400">Starter Guidance: </span>
+                        {step.starter_hint || currentStarterHint}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
 
         {/* Need Help? Hint Buttons */}
         <div className="px-5 py-4 border-b border-vibe-border">
