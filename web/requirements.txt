@@ -1,0 +1,7 @@
+next
+react
+react-dom
+monaco-editor
+tailwindcss
+postcss
+autoprefixer

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 230, 237, 243;
+  --background-start-rgb: 13, 17, 23;
+  --background-end-rgb: 13, 17, 23;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-vibe-accent focus:ring-offset-2 focus:ring-offset-vibe-bg disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-vibe-accent text-white hover:bg-vibe-accentHover;
+  }
+  .btn-secondary {
+    @apply btn bg-vibe-surface border border-vibe-border text-vibe-text hover:bg-vibe-border;
+  }
+  .btn-danger {
+    @apply btn bg-vibe-error text-white hover:bg-red-600;
+  }
+  .btn-success {
+    @apply btn bg-vibe-success text-white hover:bg-green-600;
+  }
+  .input {
+    @apply w-full px-4 py-2 bg-vibe-codeBg border border-vibe-border rounded-lg text-vibe-text placeholder-vibe-textMuted focus:outline-none focus:ring-2 focus:ring-vibe-accent focus:border-transparent transition-all;
+  }
+  .card {
+    @apply bg-vibe-surface border border-vibe-border rounded-xl p-6;
+  }
+  .mono {
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  }
+}
+
+/* Monaco editor customizations */
+.monaco-editor {
+  background-color: #010409 !important;
+}
+
+.monaco-editor .margin {
+  background-color: #010409 !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-pulse-slow {
+  animation: pulse 2s ease-in-out infinite;
+}

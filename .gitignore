@@ -1,0 +1,63 @@
+# Environment and sensitive variables (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.env
+!api/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+vibebreaker.db
+
+# Node / Next.js
+web/node_modules/
+node_modules/
+web/.next/
+.next/
+web/out/
+out/
+.npm
+*.tsbuildinfo
+
+# Nested duplicate directory
+vibebreaker/
+
+# Temporary test scratch scripts
+check_row.py
+final_test.py
+fix_eval.py
+fix_names.py
+test_backend.py
+test_flow.py
+test_groq.py
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
