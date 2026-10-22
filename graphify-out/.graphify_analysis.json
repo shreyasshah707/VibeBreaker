@@ -1,0 +1,414 @@
+{
+  "communities": {
+    "0": [
+      "api_app_db_models",
+      "api_app_db_models_get_db",
+      "api_app_db_models_init_db",
+      "api_app_db_models_rationale_1",
+      "api_app_db_models_rationale_13",
+      "api_app_db_models_rationale_21",
+      "api_app_main",
+      "api_app_main_health_check",
+      "api_app_main_py_get",
+      "api_app_main_rationale_1",
+      "api_app_routes",
+      "api_app_routes_create_session",
+      "api_app_routes_finish_session",
+      "api_app_routes_generate_session_from_prompt",
+      "api_app_routes_get_db_conn",
+      "api_app_routes_get_hint",
+      "api_app_routes_get_session",
+      "api_app_routes_py_get",
+      "api_app_routes_rationale_1",
+      "api_app_routes_rationale_155",
+      "api_app_routes_rationale_215",
+      "api_app_routes_rationale_25",
+      "api_app_routes_rationale_299",
+      "api_app_routes_rationale_37",
+      "api_app_routes_rationale_464",
+      "api_app_routes_rationale_538",
+      "api_app_routes_rationale_603",
+      "api_app_routes_rationale_645",
+      "api_app_routes_rationale_76",
+      "api_app_routes_register_routes",
+      "api_app_routes_reveal_reference_code",
+      "api_app_routes_row_to_dict",
+      "api_app_routes_submit_attempt",
+      "api_app_routes_validate_python_code",
+      "api_app_services_agent_loop",
+      "api_app_services_agent_loop_handle_code_analyze",
+      "api_app_services_agent_loop_handle_hint",
+      "api_app_services_agent_loop_rationale_1",
+      "api_app_services_agent_loop_rationale_753",
+      "app_guardrails",
+      "datetime",
+      "dotenv",
+      "fastapi",
+      "fastapi_middleware_cors",
+      "fnmatch",
+      "httpx",
+      "json",
+      "os",
+      "post",
+      "request",
+      "sqlite3",
+      "sys",
+      "time",
+      "typing",
+      "uuid"
+    ],
+    "1": [
+      "any",
+      "api_app_services_agent_loop_agentloop",
+      "api_app_services_agent_loop_agentloop_call_llm",
+      "api_app_services_agent_loop_agentloop_fallback_objectives",
+      "api_app_services_agent_loop_agentloop_fallback_output",
+      "api_app_services_agent_loop_agentloop_generate_from_prompt",
+      "api_app_services_agent_loop_agentloop_init",
+      "api_app_services_agent_loop_agentloop_run_code_analyzer",
+      "api_app_services_agent_loop_agentloop_run_evaluator",
+      "api_app_services_agent_loop_agentloop_run_hint",
+      "api_app_services_agent_loop_agentloop_run_learning_plan",
+      "api_app_services_agent_loop_agentloop_run_reflection",
+      "api_app_services_agent_loop_agentloop_run_tutor",
+      "api_app_services_agent_loop_agentloop_synthesize_prompt_solution",
+      "api_app_services_agent_loop_agentloop_trace",
+      "api_app_services_agent_loop_clean_json_str",
+      "api_app_services_agent_loop_handle_evaluate",
+      "api_app_services_agent_loop_handle_generate_from_prompt",
+      "api_app_services_agent_loop_handle_learn_plan",
+      "api_app_services_agent_loop_handle_reflect",
+      "api_app_services_agent_loop_handle_tutor",
+      "api_app_services_agent_loop_rationale_116",
+      "api_app_services_agent_loop_rationale_156",
+      "api_app_services_agent_loop_rationale_169",
+      "api_app_services_agent_loop_rationale_20",
+      "api_app_services_agent_loop_rationale_210",
+      "api_app_services_agent_loop_rationale_258",
+      "api_app_services_agent_loop_rationale_267",
+      "api_app_services_agent_loop_rationale_291",
+      "api_app_services_agent_loop_rationale_375",
+      "api_app_services_agent_loop_rationale_447",
+      "api_app_services_agent_loop_rationale_49",
+      "api_app_services_agent_loop_rationale_496",
+      "api_app_services_agent_loop_rationale_543",
+      "api_app_services_agent_loop_rationale_70",
+      "api_app_services_agent_loop_rationale_759",
+      "api_app_services_agent_loop_rationale_771",
+      "api_app_services_agent_loop_rationale_783",
+      "api_app_services_agent_loop_rationale_789"
+    ],
+    "2": [
+      "monaco_editor_react",
+      "web_app_page",
+      "web_app_page_appscreen",
+      "web_app_page_home",
+      "web_components_header",
+      "web_components_header_header",
+      "web_components_header_headerprops",
+      "web_components_learningworkspace",
+      "web_components_learningworkspace_hintentry",
+      "web_components_learningworkspace_learningworkspace",
+      "web_components_learningworkspace_learningworkspaceprops",
+      "web_components_monacoeditor",
+      "web_components_monacoeditor_editor",
+      "web_components_monacoeditor_monacoeditor",
+      "web_components_monacoeditor_monacoeditorprops",
+      "web_components_pastecodescreen_pastecodescreen",
+      "web_components_summaryscreen",
+      "web_components_summaryscreen_summaryscreen",
+      "web_components_summaryscreen_summaryscreenprops",
+      "web_lib_api",
+      "web_lib_api_apifetch",
+      "web_lib_api_attemptresponse",
+      "web_lib_api_createsession",
+      "web_lib_api_createsessionrequest",
+      "web_lib_api_createsessionresponse",
+      "web_lib_api_currentobjectiveinfo",
+      "web_lib_api_finishsession",
+      "web_lib_api_generatesessionfromprompt",
+      "web_lib_api_getsession",
+      "web_lib_api_hintresponse",
+      "web_lib_api_reflectionresponse",
+      "web_lib_api_requesthint",
+      "web_lib_api_revealcoderesponse",
+      "web_lib_api_revealreferencecode",
+      "web_lib_api_sessionstate",
+      "web_lib_api_sessionstep",
+      "web_lib_api_submitattempt"
+    ],
+    "3": [
+      "ref_autoprefixer",
+      "ref_axios",
+      "ref_eslint",
+      "ref_eslint_config_next",
+      "ref_monaco_editor_react",
+      "ref_postcss",
+      "ref_react_dom",
+      "ref_tailwindcss",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_typescript",
+      "web_package",
+      "web_package_dependencies",
+      "web_package_dependencies_axios",
+      "web_package_dependencies_monaco_editor_react",
+      "web_package_dependencies_next",
+      "web_package_dependencies_react",
+      "web_package_dependencies_react_dom",
+      "web_package_name",
+      "web_package_private",
+      "web_package_scripts",
+      "web_package_scripts_build",
+      "web_package_scripts_dev",
+      "web_package_scripts_lint",
+      "web_package_scripts_start",
+      "web_package_version"
+    ],
+    "4": [
+      "web_tsconfig",
+      "web_tsconfig_compileroptions",
+      "web_tsconfig_compileroptions_allowjs",
+      "web_tsconfig_compileroptions_esmoduleinterop",
+      "web_tsconfig_compileroptions_incremental",
+      "web_tsconfig_compileroptions_isolatedmodules",
+      "web_tsconfig_compileroptions_jsx",
+      "web_tsconfig_compileroptions_lib",
+      "web_tsconfig_compileroptions_module",
+      "web_tsconfig_compileroptions_moduleresolution",
+      "web_tsconfig_compileroptions_noemit",
+      "web_tsconfig_compileroptions_paths",
+      "web_tsconfig_compileroptions_plugins",
+      "web_tsconfig_compileroptions_resolvejsonmodule",
+      "web_tsconfig_compileroptions_skiplibcheck",
+      "web_tsconfig_compileroptions_strict",
+      "web_tsconfig_compileroptions_target",
+      "web_tsconfig_exclude",
+      "web_tsconfig_include"
+    ],
+    "5": [
+      "ref_next",
+      "ref_react",
+      "web_app_globals",
+      "web_app_layout",
+      "web_app_layout_metadata",
+      "web_app_layout_rootlayout",
+      "web_app_learning_page",
+      "web_app_learning_page_learningpage",
+      "web_app_paste_page",
+      "web_app_paste_page_pastepage",
+      "web_app_summary_page",
+      "web_app_summary_page_summarypage",
+      "web_components_pastecodescreen",
+      "web_components_pastecodescreen_pastecodescreenprops",
+      "web_components_pastecodescreen_quick_prompts"
+    ],
+    "6": [
+      "web_package_devdependencies",
+      "web_package_devdependencies_autoprefixer",
+      "web_package_devdependencies_eslint",
+      "web_package_devdependencies_eslint_config_next",
+      "web_package_devdependencies_postcss",
+      "web_package_devdependencies_tailwindcss",
+      "web_package_devdependencies_types_node",
+      "web_package_devdependencies_types_react",
+      "web_package_devdependencies_types_react_dom",
+      "web_package_devdependencies_typescript"
+    ],
+    "7": [
+      "api_app_guardrails_guardrails",
+      "api_app_guardrails_guardrails_rationale_1",
+      "api_app_guardrails_guardrails_rationale_45",
+      "api_app_guardrails_guardrails_rationale_8",
+      "api_app_guardrails_guardrails_sanitize_output",
+      "api_app_guardrails_guardrails_validate_python_code",
+      "re"
+    ],
+    "8": [
+      "web_next_env_d",
+      "web_next_env_d_rationale_6",
+      "web_next_types_root_params_d",
+      "web_next_types_routes_d"
+    ],
+    "9": [
+      "next",
+      "web_next_config",
+      "web_next_config_nextconfig"
+    ],
+    "10": [
+      "ref_globals_css",
+      "web_app_page_layout",
+      "web_app_page_layout_layout"
+    ],
+    "11": [
+      "tailwind_config",
+      "tailwindcss",
+      "web_tailwind_config"
+    ],
+    "12": [
+      "web_postcss_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.06936026936026936,
+    "1": 0.09446693657219973,
+    "2": 0.11561561561561562,
+    "3": 0.07407407407407407,
+    "4": 0.10526315789473684,
+    "5": 0.1523809523809524,
+    "6": 0.2,
+    "7": 0.3333333333333333,
+    "8": 0.5,
+    "9": 0.6666666666666666,
+    "10": 0.6666666666666666,
+    "11": 0.6666666666666666,
+    "12": 1.0
+  },
+  "gods": [
+    {
+      "id": "api_app_services_agent_loop_agentloop",
+      "label": "AgentLoop",
+      "degree": 23
+    },
+    {
+      "id": "web_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "api_app_routes_get_db_conn",
+      "label": "get_db_conn()",
+      "degree": 10
+    },
+    {
+      "id": "web_app_page_home",
+      "label": "Home()",
+      "degree": 9
+    },
+    {
+      "id": "api_app_routes_submit_attempt",
+      "label": "submit_attempt()",
+      "degree": 8
+    },
+    {
+      "id": "web_lib_api_apifetch",
+      "label": "apiFetch()",
+      "degree": 8
+    },
+    {
+      "id": "api_app_routes_create_session",
+      "label": "create_session()",
+      "degree": 7
+    },
+    {
+      "id": "api_app_routes_get_hint",
+      "label": "get_hint()",
+      "degree": 7
+    },
+    {
+      "id": "api_app_routes_row_to_dict",
+      "label": "row_to_dict()",
+      "degree": 7
+    },
+    {
+      "id": "api_app_services_agent_loop_handle_code_analyze",
+      "label": "handle_code_analyze()",
+      "degree": 7
+    }
+  ],
+  "surprises": [
+    {
+      "source": "create_session()",
+      "target": "handle_learn_plan()",
+      "source_files": [
+        "api/app/routes.py",
+        "api/app/services/agent_loop.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "finish_session()",
+      "target": "handle_reflect()",
+      "source_files": [
+        "api/app/routes.py",
+        "api/app/services/agent_loop.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "generate_session_from_prompt()",
+      "target": "handle_generate_from_prompt()",
+      "source_files": [
+        "api/app/routes.py",
+        "api/app/services/agent_loop.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "submit_attempt()",
+      "target": "handle_evaluate()",
+      "source_files": [
+        "api/app/routes.py",
+        "api/app/services/agent_loop.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "LearningWorkspaceProps",
+      "target": "SessionState",
+      "source_files": [
+        "web/components/LearningWorkspace.tsx",
+        "web/lib/api.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `react` connect `react` to `api.ts`, `package.json`?",
+      "why": "High betweenness centrality (0.070) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `autoprefixer`, `axios`, `eslint` to the rest of the system?",
+      "why": "11 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `routes.py` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06936026936026936 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `AgentLoop` connect `AgentLoop` to `routes.py`?",
+      "why": "High betweenness centrality (0.054) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `AgentLoop` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09446693657219973 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.030) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `api.ts` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11561561561561562 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
